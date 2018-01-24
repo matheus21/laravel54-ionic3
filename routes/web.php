@@ -16,19 +16,28 @@ Route::get('/', function () {
 });
 
 
-
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'can:admin'], function() {
+Route::group([
+    'prefix'     => 'admin',
+    'as'         => 'admin.',
+    'namespace'  => 'Admin\\'
+], function () {
+    Route::name('login')->get('login', 'Auth\LoginController@showLoginForm');
+    Route::post('login', 'Auth\LoginController@login');
 
-    Route::get('/', function () {
-        return "Area administrativa";
+    Route::group([
+        'middleware' => 'can:admin'
+    ], function () {
+        Route::name('logout')->post('logout', 'Auth\LoginController@logout');
+        Route::get('dashboard', function() {
+            return "Area administrativa functionando";
+        });
     });
-
 });
 
-Route::get('/force-login', function() {
-   \Auth::loginUsingId(1);
+Route::get('/force-login', function () {
+    \Auth::loginUsingId(1);
 });

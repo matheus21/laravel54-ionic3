@@ -1,6 +1,6 @@
 <?php
 
-namespace CodeFlix\Http\Controllers\Auth;
+namespace CodeFlix\Http\Controllers\Admin\Auth;
 
 use CodeFlix\Http\Controllers\Controller;
 use CodeFlix\Models\User;
@@ -44,5 +44,11 @@ class LoginController extends Controller
         $data = $request->only($this->username(), 'password');
         $data['role'] = User::ROLE_ADMIN;
         return $data;
+    }
+
+    public function showLoginForm()
+    {
+        //dd('Arrived here');
+        return view('admin.auth.login');
     }
 }
