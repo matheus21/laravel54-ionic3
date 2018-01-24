@@ -20,3 +20,6 @@ php artisan app:name 'Nome'
 	      "php artisan optimize"
 	    ]
 
+
+php artisan make:seeder UsersTableSeeder - Criar seeders (Adicionar na classe DatabaseSeeder)
+php artisan migrate:refresh --seed - Refazer as migrations e executar os seeds (ou refresh + php artisan db:seed)
