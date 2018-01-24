@@ -1,0 +1,22 @@
+COMANDOS LARAVEL
+
+- Alterar namespace da aplicação
+php artisan app:name 'Nome'
+
+- Plugins phpstorm
+
+*Laravel Plugin
+*composer require barryvdh/laravel-ide-helper (Helper que adiciona auto-complete em algumas coisas)
+	- Incluir a condição em AppServiceProvider (em register())
+	- php artisan vendor:publish --provider="Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider"
+	- php artisan ide-helper:generate (Executar quando criar e/ou adicionar um serviço para atualizar) - IGNORAR
+	- php artisan ide-helper:meta (Executar quando criar e/ou adicionar um serviço para atualizar)	- IGNORAR
+	- Adicionar os comandos para serem executados sempre no composer.json: 
+
+		"post-update-cmd": [
+	      "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+	      "php artisan ide-helper:generate",
+	      "php artisan ide-helper:meta",
+	      "php artisan optimize"
+	    ]
+
