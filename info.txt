@@ -23,3 +23,8 @@ php artisan app:name 'Nome'
 
 php artisan make:seeder UsersTableSeeder - Criar seeders (Adicionar na classe DatabaseSeeder)
 php artisan migrate:refresh --seed - Refazer as migrations e executar os seeds (ou refresh + php artisan db:seed)
+
+'include_fluent' => true - No arquivo ide-helper.php, inclui mais opções nas listas de import (gerar o ide-helper novamente)
+php artisan ide-helper:models --dir="app/Models" - Comando para gerar documentação das Models (Ao mudar as models de pasta, indicar o diretorio)
+
+
