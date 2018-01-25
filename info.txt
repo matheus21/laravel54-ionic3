@@ -27,4 +27,6 @@ php artisan migrate:refresh --seed - Refazer as migrations e executar os seeds (
 'include_fluent' => true - No arquivo ide-helper.php, inclui mais opções nas listas de import (gerar o ide-helper novamente)
 php artisan ide-helper:models --dir="app/Models" - Comando para gerar documentação das Models (Ao mudar as models de pasta, indicar o diretorio)
 
+php artisan make:notification DefaultResetPasswordNotification - Comando para criar notificações (Na pasta Notifications dentro de app/)
 
+php artisan vendor:publish --tag=laravel-notifications - publica na pasta 'views/vendor' o arquivo de template do laravel para o e-mail de reset de senha
