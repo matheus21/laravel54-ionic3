@@ -30,3 +30,8 @@ php artisan ide-helper:models --dir="app/Models" - Comando para gerar documenta�
 php artisan make:notification DefaultResetPasswordNotification - Comando para criar notificações (Na pasta Notifications dentro de app/)
 
 php artisan vendor:publish --tag=laravel-notifications - publica na pasta 'views/vendor' o arquivo de template do laravel para o e-mail de reset de senha
+
+php artisan make:controller Admin\\UsersController --resource --model=CodeFlix\\Models\\User - Criação de controller resource, com opções de relacionar o model correspondente e escolha do diretorio
+
+
+
