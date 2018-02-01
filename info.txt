@@ -33,5 +33,8 @@ php artisan vendor:publish --tag=laravel-notifications - publica na pasta 'views
 
 php artisan make:controller Admin\\UsersController --resource --model=CodeFlix\\Models\\User - Criação de controller resource, com opções de relacionar o model correspondente e escolha do diretorio
 
+php artisan make:form Forms/UserForm --fields="name:text, email:email" - Criar formulario com FormBuilder
+
+
 
 
