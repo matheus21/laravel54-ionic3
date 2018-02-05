@@ -83,6 +83,23 @@ class UsersController extends Controller
     {
         //Method spoofing
 
+        $form = \FormBuilder::create(UserForm::class, [
+            'data' => ['id' => $user->id]
+        ]);
+
+        if (!$form->isValid()) {
+            return redirect()
+                ->back()
+                ->withErrors($form->getErrors())
+                ->withInput();
+        }
+
+        $data = array_except($form->getFieldValues(), ['password', 'role']);
+        $user->fill($data);
+        $user->save();
+        $request->session()->flash('message', 'Usuário alterado com sucesso.');
+        return redirect()->route('admin.users.index');
+
     }
 
     /**
