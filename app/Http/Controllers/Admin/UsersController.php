@@ -73,17 +73,6 @@ class UsersController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \CodeFlix\Models\User $user
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(User $user)
-    {
-        //
-    }
-
-    /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
@@ -92,7 +81,25 @@ class UsersController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        //Method spoofing
+
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \CodeFlix\Models\User $user
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
+    {
+        $form = \FormBuilder::create(UserForm::class, [
+            'url'    => route('admin.users.update', ['user' => $user->id]),
+            'method' => 'PUT',
+            'model'  => $user
+        ]);
+
+        return view('admin.users.edit', compact('form'));
     }
 
     /**

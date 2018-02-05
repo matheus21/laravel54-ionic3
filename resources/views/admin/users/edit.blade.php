@@ -3,8 +3,8 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <h3>Novo usuário</h3>
-            <?php $icon = Icon::create('floppy-disk') ?>
+            <h3>Editar usuário</h3>
+            <?php $icon = Icon::create('pencil') ?>
             {!!
                 form($form->add('salve', 'submit', [
                     'attr' => ['class' => 'btn btn-primary btn block'],
